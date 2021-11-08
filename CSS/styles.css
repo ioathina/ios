@@ -15,7 +15,6 @@ our global variables or custom properties */
 html {
   font-size: 62.5%;
 }
-
 /* colors and fonts for all text */
 body {
   font-family: Inter, Arial, Helvetica, sans-serif;
@@ -24,7 +23,6 @@ body {
   line-height: 1.5; /* 1.5 times the current font size */
   color: var(--color-body);
 }
-
 /* color only for the headings */
 h1,
 h2,
@@ -32,7 +30,6 @@ h3 {
   color: var(--color-headings);
   margin-bottom: 1rem; /* creates distance between the headings and the paragraphs */
 }
-
 /* 1 x font size of the html element */
 h1 {
   font-size: 7rem;
@@ -46,7 +43,6 @@ h3 {
 p {
   margin-top: 0; /* the h3 headings define the margin above the paragraphs */
 }
-
 /* media query for screens that are larger than 1024px */
 @media screen and (min-width: 1024px) {
   body {
@@ -64,16 +60,16 @@ p {
 }
 
 /* Links */
-/* creates a rule for the link */
+/* creates a rule for the link component */
 a {
   text-decoration: none;
 }
-/* defines a class for the link */
+/* defines a class for the link component */
 .link-arrow {
   color: var(--color-accent);
-  text-transform: uppercase;
   font-size: 2rem;
   font-weight: bold;
+  text-transform: uppercase;
 }
 /* use of the 'after' pseudo element selector */
 .link-arrow::after {
@@ -85,10 +81,46 @@ a {
 .link-arrow:hover::after {
   margin-left: 10px; /* we increase the left margin */
 }
-
 /* better do define a media query for every section seperately */
 @media screen and (min-width: 1024px) {
   .link-arrow {
     font-size: 1.5rem;
+  }
+}
+
+/* Badges */
+/* we use 'Object Oriented' CSS principles: 
+   we seperate structure from skin */
+/* 1st rule that defines the structure */
+.badge {
+  border-radius: 20px; /* absolute px values that do not depend on the font size */
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0.5rem 2rem; /* 0.5rem for horizontal and 2rem for vertical padding */
+  white-space: nowrap; /* prevents the 'badge' of wrapping to a second line */
+}
+/* 2nd rule that defines the skin */
+/* BEM Block Element Modifier '--' 
+   seperates a block or a component: 'badge'
+   from a modifier: 'primary' 
+   so we can achieve multiple combinations in the index.html */
+.badge--primary {
+  background: var(--color-primary); /* to use our 'primary' color */
+  color: #fff; /* text color: white */
+}
+.badge--secondary {
+  background: var(--color-secondary); /* to use our 'secondary' color */
+  color: #fff; /* text color: white */
+}
+/* we create secondary skin for the small badges */
+.badge--small {
+  font-size: 1.6rem;
+}
+@media screen and (min-width: 1024px) {
+  .badge {
+    font-size: 1.5rem;
+  }
+  .badge--small {
+    font-size: 1.2rem;
   }
 }
