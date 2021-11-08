@@ -1,3 +1,11 @@
-body {
-  background: gold;
+/*definition of color palettes*/
+/*pseudo class selector which matches the html element to define 
+our global variables or custom properties*/
+:root {
+  /*variables names*/
+  --color-primary: #2584ff;
+  --color-secondary: #00d9ff;
+  --color-accent: #ff3400;
+  --color-headings: #1b0760;
+  --color-body: #918ca4;
 }
