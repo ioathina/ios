@@ -1,3 +1,9 @@
+/*font-size: 16px; is set by default by the browser
+  62.5% of 16px = 10px = 1rem*/
+html {
+  font-size: 62.5%;
+}
+
 /*definition of color palettes*/
 /*pseudo class selector which matches the html element to define 
 our global variables or custom properties*/
@@ -8,4 +14,51 @@ our global variables or custom properties*/
   --color-accent: #ff3400;
   --color-headings: #1b0760;
   --color-body: #918ca4;
+}
+
+/*colors and fonts for all text*/
+body {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 2.4rem;
+  /*distance between the lines*/
+  line-height: 1.5; /* 1.5 times the current font size*/
+  color: var(--color-body);
+}
+
+/*color only for the headings*/
+h1,
+h2,
+h3 {
+  color: var(--color-headings);
+  margin-bottom: 1rem; /*creates distance between the headings and the paragraphs*/
+}
+
+/*1 x font size of the html element*/
+h1 {
+  font-size: 7rem;
+}
+h2 {
+  font-size: 4rem;
+}
+h3 {
+  font-size: 3rem;
+}
+p {
+  margin-top: 0; /*the h3 headings define the margin above the paragraphs*/
+}
+
+/*media query for screens that are larger than 1024px*/
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 1.8rem;
+  }
+  h1 {
+    font-size: 8rem;
+  }
+  h2 {
+    font-size: 4rem;
+  }
+  h3 {
+    font-size: 2.4rem;
+  }
 }
