@@ -1,39 +1,39 @@
-/*definition of color palettes*/
-/*pseudo class selector which matches the html element to define 
-our global variables or custom properties*/
+/* definition of color palettes */
+/* pseudo class selector which matches the html element to define 
+our global variables or custom properties */
 :root {
-  /*variables names*/
+  /* variables names */
   --color-primary: #2584ff;
   --color-secondary: #00d9ff;
   --color-accent: #ff3400;
   --color-headings: #1b0760;
   --color-body: #918ca4;
 }
-
-/*font-size: 16px; is set by default by the browser
-  62.5% of 16px = 10px = 1rem*/
+/* Typography */
+/* font-size: 16px; is set by default by the browser
+   62.5% of 16px = 10px = 1rem */
 html {
   font-size: 62.5%;
 }
 
-/*colors and fonts for all text*/
+/* colors and fonts for all text */
 body {
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-size: 2.4rem;
-  /*distance between the lines*/
-  line-height: 1.5; /* 1.5 times the current font size*/
+  /* distance between the lines */
+  line-height: 1.5; /* 1.5 times the current font size */
   color: var(--color-body);
 }
 
-/*color only for the headings*/
+/* color only for the headings */
 h1,
 h2,
 h3 {
   color: var(--color-headings);
-  margin-bottom: 1rem; /*creates distance between the headings and the paragraphs*/
+  margin-bottom: 1rem; /* creates distance between the headings and the paragraphs */
 }
 
-/*1 x font size of the html element*/
+/* 1 x font size of the html element */
 h1 {
   font-size: 7rem;
 }
@@ -44,10 +44,10 @@ h3 {
   font-size: 3rem;
 }
 p {
-  margin-top: 0; /*the h3 headings define the margin above the paragraphs*/
+  margin-top: 0; /* the h3 headings define the margin above the paragraphs */
 }
 
-/*media query for screens that are larger than 1024px*/
+/* media query for screens that are larger than 1024px */
 @media screen and (min-width: 1024px) {
   body {
     font-size: 1.8rem;
@@ -60,5 +60,35 @@ p {
   }
   h3 {
     font-size: 2.4rem;
+  }
+}
+
+/* Links */
+/* creates a rule for the link */
+a {
+  text-decoration: none;
+}
+/* defines a class for the link */
+.link-arrow {
+  color: var(--color-accent);
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: bold;
+}
+/* use of the 'after' pseudo element selector */
+.link-arrow::after {
+  content: "-->"; /* we can also use an icon */
+  margin-left: 5px; /* better use px to maintain a standard distance */
+  transition: margin 0.15s; /* animates the 'margin' property */
+}
+/* goes to the 'hover' state and targets the 'after' element */
+.link-arrow:hover::after {
+  margin-left: 10px; /* we increase the left margin */
+}
+
+/* better do define a media query for every section seperately */
+@media screen and (min-width: 1024px) {
+  .link-arrow {
+    font-size: 1.5rem;
   }
 }
