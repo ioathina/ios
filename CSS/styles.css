@@ -159,3 +159,31 @@ a {
     padding-left: 0;
   }
 }
+
+/* Icons */
+.icon {
+  width: 40px;
+  height: 40px;
+}
+/* BEM Block Element Modifier 'Object Oriented' principles */
+/* we define seperate skins for these icons */
+/* for the first one we want to use the 'primary' color */
+.icon--primary {
+  fill: var(--color-primary);
+}
+/* a single line '-' because here we create a completely new class no BEM */
+.icon-container {
+  background: #f3f9fa;
+  width: 64px; /* we use absolute px values to maintain the same distance */
+  height: 64px;
+  border-radius: 100%;
+  /* 'spans' are inline elements so we need to change their orientation. 
+      we use 'inline-flex' because if we place it next to an other element
+      they still need to stay in line  
+      we use 'flex' to centralize the icon */
+  display: inline-flex;
+  /* aligns the item to the main axis which is by default the horizontal axis */
+  justify-content: center;
+  /* aligns the item to the secondary axis which is by default the vertical axis */
+  align-items: center;
+}
