@@ -208,6 +208,7 @@ a {
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
+  color: #fff;
 }
 .btn--outline {
   width: 100%;
@@ -222,30 +223,24 @@ a {
 }
 .btn--secondary {
   background: var(--color-secondary);
-  color: #fff;
 }
 .btn--secondary:hover {
   background: #00c8eb;
-  color: #fff;
 }
 .btn--accent {
-  width: 300px;
   background: var(--color-accent);
-  color: #fff;
 }
 .btn--accent:hover {
   background: #ec3000;
-  color: #fff;
 }
-.btn--accent-small {
-  width: 150px;
-  background: var(--color-accent);
-  color: #fff;
+.btn .icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  vertical-align: middle;
 }
-.btn--accent-small:hover {
-  width: 150px;
-  background: #ec3000;
-  color: #fff;
+.icon--white {
+  fill: #fff;
 }
 @media screen and (min-width: 1024px) {
   .btn {
@@ -275,7 +270,7 @@ a {
   border: 0;
   flex-grow: 1; /* it makes the 'input' element to occupy 
                   all the available space within the 'input-group' */
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 3rem;
 }
 /* nesting, we have an 'button' within an 'input-group' */
 .input-group .btn {
@@ -364,4 +359,18 @@ a {
   .plan__description {
     font-size: 1.7rem;
   }
+}
+
+/* Media */
+.media {
+  display: flex; /* to enable 'flex-box' rules */
+}
+.media__title {
+  margin-top: 0;
+}
+.media__body {
+  margin: 0 2rem;
+}
+.media__image {
+  margin-top: 1rem;
 }
