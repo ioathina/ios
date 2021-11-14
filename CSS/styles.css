@@ -231,6 +231,10 @@ a {
   background: var(--color-headings);
   color: #fff;
 }
+.btn--stretched {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
 .btn--secondary {
   background: var(--color-secondary);
 }
@@ -470,5 +474,40 @@ a {
   }
   .testimonial .quote {
     margin-left: 6rem;
+  }
+}
+
+/* Callouts */
+.callout {
+  padding: 4rem;
+  border-radius: 5px;
+}
+.callout--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.callout__heading {
+  color: #fff;
+  margin-top: 0;
+  font-size: 3rem;
+}
+.callout .btn {
+  justify-self: center; /* horizontal alignment: a property that is applied to a grid item */
+  align-self: center; /* vertical alignment: a property that is applied to a grid item */
+}
+.callout__content {
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .callout .grid--1x2 {
+    grid-template-columns: 1fr auto;
+  }
+  .callout__content {
+    text-align: left;
+    font-size: 2rem;
+  }
+  .callout .btn {
+    justify-self: start;
+    margin: 0 2rem;
   }
 }
