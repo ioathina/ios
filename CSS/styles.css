@@ -695,7 +695,7 @@ a {
 }
 @media screen and (min-width: 768px) {
   .block-domain__prices {
-    /* 'auto-fit' it fits horizontaly as amny items */
+    /* 'auto-fit' it fits horizontaly as any items */
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   }
 }
@@ -707,4 +707,24 @@ a {
 .block-plans .card {
   max-width: 500px;
   margin: 0 auto;
+}
+
+/* Features */
+.feature {
+  gap: 4rem 2rem;
+  margin: 12rem 0;
+}
+.feature:first-of-type {
+  margin-top: 6rem;
+}
+.feature__heading {
+  margin: 1rem 0;
+}
+.feature__image {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .feature:nth-of-type(even) .feature__content {
+    order: 2;
+  }
 }
