@@ -37,6 +37,7 @@ h2,
 h3 {
   color: var(--color-headings);
   margin-bottom: 1rem; /* creates distance between the headings and the paragraphs */
+  line-height: 1.1;
 }
 /* 1 x font size of the html element */
 h1 {
@@ -314,7 +315,7 @@ a {
   color: #fff;
 }
 /* nesting, if we have a secondary badge 'badge--secondary' 
-   inside a secondary card 'card__secondary' it takes the following rules */
+   inside a secondary card 'card--secondary' it takes the following rules */
 .card--secondary .badge--secondary {
   background: #02cdf1;
 }
@@ -623,5 +624,28 @@ a {
   }
   .nav__item {
     border: 0;
+  }
+}
+
+/* Hero */
+.hero {
+  clip-path: polygon(0% 0%, 100% 00%, 100% 90%, 0% 100%);
+}
+.hero__tagline {
+  font-size: 2rem;
+  color: #b9c3cf;
+  letter-spacing: 1px;
+  margin: 2rem 0 5rem;
+}
+.hero__image {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .hero {
+    padding-top: 0;
+  }
+  .hero__content {
+    text-align: left;
+    align-self: center;
   }
 }
