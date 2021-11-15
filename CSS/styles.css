@@ -216,10 +216,17 @@ a {
   font-weight: 600;
   margin: 1rem 0;
   padding: 2rem 3rem;
+  outline: 0;
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
   color: #fff;
+}
+.btn .icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  vertical-align: middle;
 }
 .btn--outline {
   width: 100%;
@@ -248,12 +255,6 @@ a {
 .btn--accent:hover {
   background: #ec3000;
 }
-.btn .icon {
-  width: 2rem;
-  height: 2rem;
-  margin-right: 1rem;
-  vertical-align: middle;
-}
 @media screen and (min-width: 1024px) {
   .btn {
     font-size: 1.5rem;
@@ -267,7 +268,6 @@ a {
   color: var(--color-headings);
   font-size: 2rem;
   outline: 0; /* to get rid of the default border line */
-  padding: 1.5rem 3.5rem;
 }
 ::placeholder {
   color: #cbcdd7;
@@ -282,7 +282,7 @@ a {
   border: 0;
   flex-grow: 1; /* it makes the 'input' element to occupy 
                   all the available space within the 'input-group' */
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 2rem;
 }
 /* nesting, we have an 'button' within an 'input-group' */
 .input-group .btn {
@@ -542,6 +542,10 @@ a {
 }
 
 /* Blocks */
+.container {
+  max-width: 1140px;
+  margin: 0 auto; /* equal vertical distribution at the sides of the block */
+}
 .block {
   --padding-vertical: 6rem;
   padding: var(--padding-vertical) 2rem;
@@ -566,10 +570,6 @@ a {
 .block--skewed-left {
   clip-path: polygon(0% 0%, 100% 00%, 100% 80%, 0% 100%);
   padding-bottom: calc(var(--padding-vertical) + 4rem);
-}
-.container {
-  max-width: 1140px;
-  margin: 0 auto; /* equal vertical distribution at the sides of the block */
 }
 
 /* Navigation Bar */
@@ -647,5 +647,34 @@ a {
   .hero__content {
     text-align: left;
     align-self: center;
+  }
+}
+
+/* Domain Block */
+/* in the block 'block-domain' the 'input-group'
+   should follow the rules below */
+.block-domain .input-group {
+  box-shadow: 0 0 30px 20px #e6ebee;
+  border: 0;
+  margin: 4rem auto;
+  max-width: 670px;
+}
+.block-domain__prices {
+  display: grid;
+  /* divides the space in 3 equal fractions */
+  grid-template-columns: repeat(3, 1fr);
+  /* the 6 sets the height of each row */
+  grid-template-rows: repeat(2, 6rem);
+  font-size: 2rem;
+  font-weight: 600;
+  /* for horizontal alignment */
+  justify-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .block-domain__prices {
+    /* 'auto-fit' it fits horizontaly as amny items */
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   }
 }
