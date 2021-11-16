@@ -18,6 +18,11 @@ our global variables or custom properties */
   box-sizing: border-box;
 }
 /* Typography */
+/* pseudoselector define the color of the selected text */
+::selection {
+  background: var(--color-primary);
+  color: #fff;
+}
 /* font-size: 16px; is set by default by the browser
    62.5% of 16px = 10px = 1rem */
 html {
@@ -48,6 +53,7 @@ h2 {
 }
 h3 {
   font-size: 3rem;
+  font-weight: 500;
 }
 p {
   margin-top: 0; /* the h3 headings define the margin above the paragraphs */
@@ -142,9 +148,7 @@ a {
 .list {
   list-style: none; /* to get rid of the default bullet point */
   padding-left: 0; /* to get rid of the padding that all browsers set by default */
-  color: var(
-    --color-headings
-  ); /* they inherit the color we have set for the 'Headings' */
+  /* they inherit the color we have set for the 'Headings' */
 }
 /* BEM Block Element Modifier '--' 
    seperates a block 'list' from its elements 'item'
@@ -158,6 +162,7 @@ a {
 .list--tick {
   list-style-image: url(/images/tick.svg);
   padding-left: 3rem; /* the list by default pushes the icons out of the screen */
+  color: var(--color-headings);
 }
 /* this is nesting */
 .list--tick .list__item {
@@ -392,6 +397,7 @@ a {
 /* Media */
 .media {
   display: flex; /* to enable 'flex-box' rules */
+  margin-bottom: 4rem;
 }
 .media__title {
   margin-top: 0;
@@ -581,11 +587,13 @@ a {
   background: #000;
   color: #7b858b;
 }
-.block--dark .block__heading {
+.block--dark h1,
+.block--dark h2,
+.block--dark h3 {
   color: #fff;
 }
 .block--skewed-right {
-  clip-path: polygon(0% 0%, 100% 00%, 100% 100%, 0% 80%);
+  clip-path: polygon(0% 0%, 100% 00%, 100% 100%, 0% 95%);
   padding-bottom: calc(var(--padding-vertical) + 4rem);
 }
 .block--skewed-left {
@@ -709,7 +717,7 @@ a {
   margin: 0 auto;
 }
 
-/* Features */
+/* Features Block */
 .feature {
   gap: 4rem 2rem;
   margin: 12rem 0;
@@ -726,5 +734,24 @@ a {
 @media screen and (min-width: 768px) {
   .feature:nth-of-type(even) .feature__content {
     order: 2;
+  }
+}
+
+/* Showcase Block */
+/* we target the img element so the image is responsive */
+.block-showcase__picture > img {
+  width: 100%; /* makes the image responsive */
+}
+@media screen and (min-width: 768px) {
+  .block-showcase .grid {
+    grid-template-columns: 50% 50%; /* 50% of the with of the container */
+  }
+  .block-showcase__picture {
+    justify-self: end; /* it aligns it self at the end side of its column */
+  }
+  /* we target the img element so the image is responsive */
+  .block-showcase__picture > img {
+    width: auto; /* is displayed to its actual size */
+    max-width: 700px;
   }
 }
