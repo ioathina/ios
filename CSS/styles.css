@@ -28,6 +28,9 @@ our global variables or custom properties */
 html {
   font-size: 62.5%;
 }
+img {
+  width: 100%;
+}
 /* colors and fonts for all text */
 body {
   font-family: Inter, Arial, Helvetica, sans-serif;
@@ -221,7 +224,7 @@ a {
   font-size: 1.8rem;
   font-weight: 600;
   margin: 1rem 0;
-  padding: 2rem 3rem;
+  padding: 2rem 4vw; /* takes 4% of the vertical viewport */
   outline: 0;
   text-align: center;
   text-transform: uppercase;
@@ -274,6 +277,7 @@ a {
   color: var(--color-headings);
   font-size: 2rem;
   outline: 0; /* to get rid of the default border line */
+  padding: 1.5rem 3.5rem;
 }
 ::placeholder {
   color: #cbcdd7;
@@ -289,6 +293,7 @@ a {
   flex-grow: 1; /* it makes the 'input' element to occupy 
                   all the available space within the 'input-group' */
   padding: 1.5rem 2rem;
+  width: 0;
 }
 /* nesting, we have an 'button' within an 'input-group' */
 .input-group .btn {
@@ -308,7 +313,7 @@ a {
 }
 .card__header,
 .card__body {
-  padding: 2rem 3rem;
+  padding: 2rem 7%; /* 4wv takes 4% of the horizontal viewport*/
 }
 /* nesting, if we have a class called 'card--primary' 
    the 'card__header' takes the following rules */
@@ -357,9 +362,7 @@ a {
 .plan .list__item {
   margin-bottom: 2rem;
 }
-.plan--popular {
-  transform: scale(1.1);
-}
+
 .plan--popular .card__header {
   position: relative;
 }
@@ -380,8 +383,11 @@ a {
   transform: scale(1.15);
 }
 @media screen and (min-width: 1024px) {
+  .plan--popular {
+    transform: scale(1.1);
+  }
   .plan__name {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
   .plan__price {
     font-size: 5rem;
@@ -390,7 +396,7 @@ a {
     font-size: 1.6rem;
   }
   .plan__description {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
 }
 
@@ -411,10 +417,10 @@ a {
 
 /* Quotes */
 .quote {
-  font-size: 2rem;
+  font-size: 3rem;
   font-style: italic;
   color: var(--color-body-darker);
-  line-height: 1.5;
+  line-height: 1.3;
 }
 .quote__text::before {
   content: open-quote; /* to add quotation marks */
@@ -430,7 +436,7 @@ a {
 }
 .quote__company {
   font-style: normal;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: var(--color-headings);
   opacity: 0.4;
 }
@@ -443,7 +449,7 @@ a {
     font-size: 2rem;
   }
   .quote__author {
-    font-size: 2rem;
+    font-size: 2.4rem;
   }
   .quote__company {
     font-size: 1.6rem;
@@ -475,19 +481,13 @@ a {
   padding: 3rem;
 }
 .testimonial .quote {
-  margin: 2rem 0rem;
-}
-.testimonial .quote__company {
-  padding: 0;
+  margin: 2rem 3rem;
+  font-size: 1.6rem;
 }
 .testimonial__image {
   /* we need to enable 'relative' positioning to the container */
   position: relative;
-  margin: 1rem 3rem;
-}
-.testimonial__image > img {
-  /* we target the 'image' that is directly inside the container */
-  width: 100%;
+  margin: 0 3rem;
 }
 .testimonial__image > .icon-container {
   /* we target the '.icon-container' that is directly inside the container */
@@ -496,12 +496,13 @@ a {
   right: -32px;
 }
 @media screen and (min-width: 768px) {
-  .testimonial .quote,
-  .testimonial .quote__author {
-    font-size: 2rem;
+  .testimonial__image {
+    margin: 0;
   }
   .testimonial .quote {
     margin-left: 6rem;
+    font-size: 2.5rem;
+    line-height: 1.5;
   }
 }
 
@@ -547,6 +548,7 @@ a {
 }
 .collapsible__heading {
   margin-top: 0;
+  font-size: 3rem;
 }
 .collapsible__chevron {
   transform: rotate(-90deg);
@@ -564,7 +566,7 @@ a {
 }
 /* trick to animate the text */
 .collapsible--expanded .collapsible__content {
-  max-height: 100vh;
+  max-height: 100%;
   opacity: 1;
 }
 
@@ -574,7 +576,7 @@ a {
   margin: 0 auto; /* equal vertical distribution at the sides of the block */
 }
 .block {
-  --padding-vertical: 6rem;
+  --padding-vertical: 5rem;
   padding: var(--padding-vertical) 2rem;
 }
 .block__header {
@@ -608,7 +610,7 @@ a {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 0 1rem;
+  padding: 1rem;
   align-items: center; /* aligns the items to the secondary axis which is the vertical one */
 }
 .nav__list {
@@ -618,6 +620,9 @@ a {
 .nav__item {
   padding: 0.5rem 2rem;
   border-bottom: 1px solid #222;
+}
+.nav__item:last-of-type {
+  border-bottom: none;
 }
 /* direct child selector to target the 'a' anchor inside the 'nav__item' element */
 .nav__item > a {
@@ -640,6 +645,7 @@ a {
 }
 .nav__brand {
   transform: translateY(5px);
+  width: 150px;
 }
 @media screen and (min-width: 768px) {
   .nav__toggler {
@@ -667,9 +673,6 @@ a {
   letter-spacing: 1px;
   margin: 2rem 0 5rem;
 }
-.hero__image {
-  width: 100%;
-}
 @media screen and (min-width: 768px) {
   .hero {
     padding-top: 0;
@@ -690,9 +693,10 @@ a {
   max-width: 670px;
 }
 .block-domain__prices {
+  color: var(--color-headings);
   display: grid;
   /* divides the space in 3 equal fractions */
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   /* the 6 sets the height of each row */
   grid-template-rows: repeat(2, 6rem);
   font-size: 2rem;
@@ -729,9 +733,7 @@ a {
 .feature__heading {
   margin: 1rem 0;
 }
-.feature__image {
-  width: 100%;
-}
+
 @media screen and (min-width: 768px) {
   .feature:nth-of-type(even) .feature__content {
     order: 2;
@@ -760,6 +762,7 @@ a {
 /* Footer */
 .footer {
   background: #232323;
+  padding-top: 10rem;
 }
 .footer a {
   color: #777;
@@ -778,7 +781,8 @@ a {
 .footer__heading {
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 2.5rem;
+  line-height: 1.5;
 }
 .footer__brand {
   margin-top: 5rem;
@@ -822,4 +826,9 @@ a {
   .footer__heading {
     font-size: 1.6rem;
   }
+}
+
+/* Sign-up Callout */
+.callout-signup {
+  transform: translateY(5rem);
 }
